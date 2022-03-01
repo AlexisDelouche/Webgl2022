@@ -226,7 +226,7 @@ function drawScene() {
         mat4.translate(mvMatrix, [0.0, 0.1, distCenter]);
         mat4.multiply(mvMatrix, objMatrix);
         setMatrixUniforms();
-        gl.bindTexture(gl.TEXTURE_2D, texture[0]);
+        gl.bindTexture(gl.TEXTURE_2D, texture[1]);
         gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
 
         for (var i=1;i<=sliderImage;i++){//permet d'afficher toutes les textures charger en prenant compte des valeurs des slider

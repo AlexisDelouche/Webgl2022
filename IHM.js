@@ -19,20 +19,20 @@ function choixtexture(){
 		texture.length = 0;
     }
 	if (document.getElementById("Crane").checked == true){
-		for (var i = 0; i<=23 ; i++){
-			initTexture("Image/("+i+").jpg");
+		for (var i = 1; i<=24 ; i++){
+			initTexture("Image/Crane ("+i+").jpg");
 		}
         distance = 0.0125;
     }
     else if(document.getElementById("Torse").checked == true){
-		for (var i = 0; i<=369 ; i++){
+		for (var i = 1; i<=370 ; i++){
 			initTexture("MRI/IRM ("+i+").jpg");
 		}
         distance = 0.0015;
     }
     else if(document.getElementById("Bras").checked == true){
-        for (var i = 0; i<=220 ; i++){
-            initTexture("ARM/("+i+").jpg");
+        for (var i = 1; i<=214 ; i++){
+            initTexture("ARM/ARM ("+i+").jpg");
         }
            distance = 0.0045;
        }

@@ -53,7 +53,7 @@
 	</div>
 	<form oninput="updateImage(seuil.value)" method="post"> <!-- formulaire pour recuperer la valeur du nombre d'image maximum a afficher -->
 		<label>Nombre d'image</label>
-		<input type="range" id="sliderImage" name="sliderImage" min="0" max=texture.length value=max/2 step="1"
+		<input type="range" id="sliderImage" name="sliderImage" min="1" max=texture.length value=max/2 step="1"
 			   oninput="seuil.value=parseInt(sliderImage.value)">
 		<output id="seuil">--</output> <!-- permet d'afficher la valeur du slider -->
 	</form>
