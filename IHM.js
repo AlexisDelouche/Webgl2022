@@ -1,35 +1,42 @@
 //Kevin AUBRY-ROMAN, Alexis DELOUCHE, Arthur GROUARD
-var sliderImageTorse;
-var sliderImageTorseMin;
-var sliderImageCrane;
-var sliderImageCraneMin;
-var chemin = "Torse";
+var sliderImage;
+var sliderChoose;
+var distance;
 
-function updateImageTorse(val){
-    sliderImageTorse=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du torse"
+function updateImage(val){
+    sliderImage=val;
+    }//fonction qui récupere la valeur du slider "Nombre d'image"
 
-function updateImageTorseMin(val){
-    sliderImageTorseMin=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du torse minimum"
+function chooseImage(val){
+    sliderChoose=val;
+    }//fonction qui récupere la valeur du slider "Image a afficher"
 
-function updateImageCrane(val){
-    sliderImageCrane=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du cranee"
-
-function updateImageCraneMin(val){
-    sliderImageCraneMin=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du crane minimum"
-
-function updatechemin(){ // var chemin modifiée par le checkbox
-    if (document.getElementById("image").checked == true){
-        chemin = "Crane";
+function choixtexture(){
+	if (texture != []){
+		for(var i=1;i<=texture.length;i++){
+			gl.deleteTexture(texture[i]);
+		}
+		texture.length = 0;
     }
-    else{
-        chemin = "Torse";
+	if (document.getElementById("Crane").checked == true){
+		for (var i = 1; i<=24 ; i++){
+			initTexture("Image/Crane ("+i+").jpg");
+		}
+        distance = 0.0125;
     }
+    else if(document.getElementById("Torse").checked == true){
+		for (var i = 1; i<=370 ; i++){
+			initTexture("MRI/IRM ("+i+").jpg");
+		}
+        distance = 0.0015;
+    }
+    else if(document.getElementById("Bras").checked == true){
+        for (var i = 1; i<=214 ; i++){
+            initTexture("ARM/ARM ("+i+").jpg");
+        }
+           distance = 0.0045;
+       }
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 var sliderSeuilBas = document.getElementById("seuilBas");
