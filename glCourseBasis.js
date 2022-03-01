@@ -12,7 +12,6 @@ var pMatrix = mat4.create();
 var objMatrix = mat4.create();
 mat4.identity(objMatrix);
 var texture = [];
-var chemin;
 var distance;
 var sliderImageTorse;
 var sliderImageCrane;
@@ -30,17 +29,7 @@ function webGLStart() {
 	initGL(canvas);
 	initBuffers();
 
-
-	for (var i = 0; i<=23 ; i++){
-		initTexture("Image/"+i+".jpg");
-	}
-	for (var i = 0; i<=369 ; i++){
-		initTexture("MRI/IRM ("+i+").jpg");
-	}
-	// On initialise un texture composé de 2 dossiers d'images différentes
-	// Cela va nous permettre d'afficher 2 différents lots de textures
-
-
+    choixtexture();
 
 	loadShaders('shader');
 
@@ -232,51 +221,22 @@ function setMatrixUniforms() {
 function drawScene() {
 	gl.clear(gl.COLOR_BUFFER_BIT);
 
-    if(chemin == "Torse"){  // Si le checkbox est false alors la variable chemin sera "Torse" et on ne va afficher que le torse
-        distance = 0.0015;
-		if(shaderProgram != null) {
+    if(shaderProgram != null) {
 
-		    mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
-		    mat4.identity(mvMatrix);
-		    mat4.translate(mvMatrix, [0.0, 0.1, distCenter]);
-		    mat4.multiply(mvMatrix, objMatrix);
-		    setMatrixUniforms();
-		    gl.bindTexture(gl.TEXTURE_2D, texture[25]);
-		    gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
+        mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
+        mat4.identity(mvMatrix);
+        mat4.translate(mvMatrix, [0.0, 0.1, distCenter]);
+        mat4.multiply(mvMatrix, objMatrix);
+        setMatrixUniforms();
+        gl.bindTexture(gl.TEXTURE_2D, texture[0]);
+        gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
 
-
-        for (var i=25;i<=sliderImageTorse;i++){//permet d'afficher toutes les textures charger en prenant compte des valeurs des slider
+        for (var i=1;i<=sliderImageTorse;i++){//permet d'afficher toutes les textures charger en prenant compte des valeurs des slider
             mat4.translate(mvMatrix, [0.0, 0.0, distance]);// distance est une valeur faible pour donner un effet de 3D
             setMatrixUniforms(); //envoie les 2 matrices à la carte graphique
             gl.bindTexture(gl.TEXTURE_2D, texture[i]);
             gl.uniform1i(shaderProgram.samplerUniform, 0); //active le sampler numéro 0
             gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
         }
-	}
-	
-    }
-    else if (chemin == "Crane"){  // Si le checkbox est true alors la variable chemin sera "Crane" et on ne va afficher que le crane
-        distance = 0.0125;
-    
-
-		if(shaderProgram != null) {
-
-				mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
-				mat4.identity(mvMatrix);
-				mat4.translate(mvMatrix, [0.0, 0.1, distCenter]);
-				mat4.multiply(mvMatrix, objMatrix);
-				setMatrixUniforms();
-				gl.bindTexture(gl.TEXTURE_2D, texture[sliderImageCraneMin]);
-				gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
-
-
-			for (var i=0;i<=sliderImageCrane;i++){//permet d'afficher toutes les textures charger en prenant compte des valeurs des slider
-				mat4.translate(mvMatrix, [0.0, 0.0, distance]);// distance est une valeur faible pour donner un effet de 3D
-				setMatrixUniforms(); //envoie les 2 matrices à la carte graphique
-				gl.bindTexture(gl.TEXTURE_2D, texture[i]);
-				gl.uniform1i(shaderProgram.samplerUniform, 0); //active le sampler numéro 0
-				gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
-			}
-		}
 	}
 }

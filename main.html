@@ -79,8 +79,11 @@
 		<output id="seuilChooseCrane">--</output> <!-- permet d'afficher la valeur du slider -->
 	</form>
 
-	<input type="checkbox" onclick="updatechemin()" id = "image" name = "image">
-	<label for="image">Changement</label><!-- checkbox pemettant de changer entre un crâne et un torse -->
+	<input type="radio" onclick="choixtexture()" id = "Crane" name = "image" checked>
+	<label for="image">Crane</label>
+
+	<input type="radio" onclick="choixtexture()" id = "Torse" name = "image">
+	<label for="image">Torse</label>
 
 </body>
 <script type="text/javascript" src="IHM.js"></script>

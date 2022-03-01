@@ -3,7 +3,7 @@ var sliderImageTorse;
 var sliderChooseTorse;
 var sliderImageCrane;
 var sliderChooseeCrane;
-var chemin = "Torse";
+var distance;
 
 function updateImageTorse(val){
     sliderImageTorse=val;
@@ -21,15 +21,26 @@ function chooseImageCrane(val){
     sliderImageCraneMin=val;
     }//fonction qui récupere la valeur du slider "Nombre d'image du crane minimum"
 
-function updatechemin(){ // var chemin modifiée par le checkbox
-    if (document.getElementById("image").checked == true){
-        chemin = "Crane";
+function choixtexture(){
+	if (texture != []){
+		for(var i=1;i<=texture.length;i++){
+			gl.deleteTexture(texture[i]);
+		}
+		texture.length = 0;
     }
-    else{
-        chemin = "Torse";
+	if (document.getElementById("Crane").checked == true){
+		for (var i = 0; i<=23 ; i++){
+			initTexture("Image/"+i+".jpg");
+		}
+        distance = 0.0125;
+    }
+    else if(document.getElementById("Torse").checked == true){
+		for (var i = 0; i<=369 ; i++){
+			initTexture("MRI/IRM ("+i+").jpg");
+		}
+        distance = 0.0015;
     }
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 var sliderSeuilBas = document.getElementById("seuilBas");
