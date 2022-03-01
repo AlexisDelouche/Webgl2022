@@ -64,7 +64,14 @@ function hexToRGB(hex) {
 //recuperation des valeur hexa des colorpicker et conversion en rgb pour chacun des trois boutons
 
 var couleur1 = document.getElementById("couleur1");
-var rgbCouleur1 =hexToRGB(couleur1.value);
+couleur1.addEventListener("input", watchColorPicker, false);
+couleur1.addEventListener("change", watchColorPicker, false);
+
+function watchColorPicker(event) {
+  var rgbCouleur1 =hexToRGB(couleur1.value);
+}
+
+
 
 var couleur2 = document.getElementById("couleur2");
 var rgbCouleur2 = hexToRGB(couleur2.value);
