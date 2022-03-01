@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="glMatrix.js"></script>
 	<script type="text/javascript" src="callbacks.js"></script>
 	<script type="text/javascript" src="glCourseBasis.js"></script>
-	
+	<script type="text/javascript" src="IHM.js"></script>
 
 <!------------------------------------------------------------------->
 
@@ -51,19 +51,6 @@
 			<label for="head">High density color</label>
 		</div>	
 	</div>
-	<form oninput="updateImage(seuil.value)" method="post"> <!-- formulaire pour recuperer la valeur du nombre d'image maximum a afficher -->
-		<label>Nombre d'image</label>
-		<input type="range" id="sliderImage" name="sliderImage" min="1" max=texture.length value=max/2 step="1"
-			   oninput="seuil.value=parseInt(sliderImage.value)">
-		<output id="seuil">--</output> <!-- permet d'afficher la valeur du slider -->
-	</form>
-
-	<form oninput="chooseImage(seuilChoose.value)" method="post"> <!-- formulaire pour recuperer la valeur de l'iamge a afficher -->
-		<label>Image a afficher</label>
-		<input type="range" id="sliderChoose" name="sliderChoose" min="24" max=394 value=170 step="1"
-			   oninput="seuilChoose.value=parseInt(sliderChoose.value)">
-		<output id="seuilChoose">--</output> <!-- permet d'afficher la valeur du slider -->
-	</form>
 
 	<input type="radio" onclick="choixtexture()" id = "Crane" name = "image" checked>
 	<label for="image">Crane</label>
@@ -74,7 +61,20 @@
 	<input type="radio" onclick="choixtexture()" id = "Bras" name = "image">
 	<label for="image">Bras</label>
 
+	<form oninput="updateImage(seuil.value)" method="post"> <!-- formulaire pour recuperer la valeur du nombre d'image maximum a afficher -->
+		<label>Nombre d'image</label>
+		<input type="range" id="sliderImage" name="sliderImage" min="1" max="lengthDossier()" value=max/2 step="1"
+			   oninput="seuil.value=parseInt(sliderImage.value)">
+		<output id="seuil">--</output> <!-- permet d'afficher la valeur du slider -->
+	</form>
+
+	<form oninput="chooseImage(seuilChoose.value)" method="post"> <!-- formulaire pour recuperer la valeur de l'iamge a afficher -->
+		<label>Image a afficher</label>
+		<input type="range" id="sliderChoose" name="sliderChoose" min="1" max=370 value=max/2 step="1"
+			   oninput="seuilChoose.value=parseInt(sliderChoose.value)">
+		<output id="seuilChoose">--</output> <!-- permet d'afficher la valeur du slider -->
+	</form>
+
 </body>
-<script type="text/javascript" src="IHM.js"></script>
 
 </html>

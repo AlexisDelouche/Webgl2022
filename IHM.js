@@ -11,12 +11,19 @@ function chooseImage(val){
     sliderChoose=val;
     }//fonction qui récupere la valeur du slider "Image a afficher"
 
+function lengthDossier(){
+    for (var i=1;i<=texture.length;i++){
+        var j= j+1;
+    }
+    return j;
+}
+
 function choixtexture(){
 	if (texture != []){
 		for(var i=1;i<=texture.length;i++){
 			gl.deleteTexture(texture[i]);
 		}
-		texture.length = 0;
+		texture = [];
     }
 	if (document.getElementById("Crane").checked == true){
 		for (var i = 1; i<=24 ; i++){
