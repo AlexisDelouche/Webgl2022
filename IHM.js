@@ -1,15 +1,15 @@
 //Kevin AUBRY-ROMAN, Alexis DELOUCHE, Arthur GROUARD
 var sliderImageTorse;
-var sliderImageTorseMin;
+var sliderChooseTorse;
 var sliderImageCrane;
-var sliderImageCraneMin;
+var sliderChooseeCrane;
 var chemin = "Torse";
 
 function updateImageTorse(val){
     sliderImageTorse=val;
     }//fonction qui récupere la valeur du slider "Nombre d'image du torse"
 
-function updateImageTorseMin(val){
+function chooseImageTorse(val){
     sliderImageTorseMin=val;
     }//fonction qui récupere la valeur du slider "Nombre d'image du torse minimum"
 
@@ -17,7 +17,7 @@ function updateImageCrane(val){
     sliderImageCrane=val;
     }//fonction qui récupere la valeur du slider "Nombre d'image du cranee"
 
-function updateImageCraneMin(val){
+function chooseImageCrane(val){
     sliderImageCraneMin=val;
     }//fonction qui récupere la valeur du slider "Nombre d'image du crane minimum"
 
