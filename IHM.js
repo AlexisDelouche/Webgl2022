@@ -40,6 +40,12 @@ function choixtexture(){
 		}
         distance = 0.0015;
     }
+    else if(document.getElementById("Bras").checked == true){
+        for (var i = 0; i<=220 ; i++){
+            initTexture("ARM/("+i+").jpg");
+        }
+           distance = 0.005;
+       }
 }
 
 /////////////////////////////////////////////////////////////////////////////
