@@ -229,7 +229,7 @@ function drawScene() {
         gl.bindTexture(gl.TEXTURE_2D, texture[0]);
         gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
 
-        for (var i=1;i<=sliderImageTorse;i++){//permet d'afficher toutes les textures charger en prenant compte des valeurs des slider
+        for (var i=1;i<=sliderImage;i++){//permet d'afficher toutes les textures charger en prenant compte des valeurs des slider
             mat4.translate(mvMatrix, [0.0, 0.0, distance]);// distance est une valeur faible pour donner un effet de 3D
             setMatrixUniforms(); //envoie les 2 matrices à la carte graphique
             gl.bindTexture(gl.TEXTURE_2D, texture[i]);
