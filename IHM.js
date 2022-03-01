@@ -20,7 +20,7 @@ function choixtexture(){
     }
 	if (document.getElementById("Crane").checked == true){
 		for (var i = 0; i<=23 ; i++){
-			initTexture("Image/"+i+".jpg");
+			initTexture("Image/("+i+").jpg");
 		}
         distance = 0.0125;
     }
@@ -34,7 +34,7 @@ function choixtexture(){
         for (var i = 0; i<=220 ; i++){
             initTexture("ARM/("+i+").jpg");
         }
-           distance = 0.005;
+           distance = 0.0045;
        }
 }
 
