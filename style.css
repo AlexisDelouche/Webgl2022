@@ -1,0 +1,80 @@
+//Kevin AUBRY-ROMAN, Alexis DELOUCHE, Arthur GROUARD
+p{
+  margin: 10px;
+  padding: 10px;
+  font-size: 15px;
+  color: #ffff;
+  border-radius: 5%;
+}
+
+h1{
+  margin: 10px;
+  padding: 10px;
+  color: #ffff;
+}
+
+div{
+  margin: 10px;
+}
+
+body{
+  background-color: rgb(0, 153, 255); /*modifie la couleur de l'arriere plan*/
+  margin: 0px;
+  padding: 0px;
+}
+
+.IHM{
+  width: auto;
+  float: left;
+  border-radius: 10px;
+  background-color: rgb(4, 135, 241);
+}
+canvas{
+  float: left;
+  border:none;
+  background-color: rgb(255, 255, 255); /*permet de garder un fond blanc deriere le canvas pour ne pas modifier la couleur d'affichage des images*/
+}
+.slidecontainer {
+    width: 100px; /* Width of the outside container */
+    display: none;
+    border-radius: 10px;
+    background-color: rgb(53, 162, 252);
+    align-content: center;
+
+  }
+
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+
+    appearance: none;
+    width: 100%; /* half-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 10px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  .slider::-moz-range-thumb {
+    width: 10px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
