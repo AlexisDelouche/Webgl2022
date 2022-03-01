@@ -51,32 +51,18 @@
 			<label for="head">High density color</label>
 		</div>	
 	</div>
-	<form oninput="updateImageTorse(seuilTorse.value)" method="post"> <!-- formulaire pour r�cuperer la valeur du nombre d'image maximum a afficher -->
-		<label>Nombre d'image du torse</label>
-		<input type="range" id="sliderImageTorse" name="sliderImageTorse" min="24" max=394 value=170 step="1"
-			   oninput="seuilTorse.value=parseInt(sliderImageTorse.value)">
-		<output id="seuilTorse">--</output> <!-- permet d'afficher la valeur du slider -->
+	<form oninput="updateImage(seuil.value)" method="post"> <!-- formulaire pour recuperer la valeur du nombre d'image maximum a afficher -->
+		<label>Nombre d'image</label>
+		<input type="range" id="sliderImage" name="sliderImage" min="24" max=394 value=170 step="1"
+			   oninput="seuil.value=parseInt(sliderImage.value)">
+		<output id="seuil">--</output> <!-- permet d'afficher la valeur du slider -->
 	</form>
 
-	<form oninput="chooseImageTorse(seuilChooseTorse.value)" method="post"> <!-- formulaire pour r�cuperer la valeur du minimum a afficher -->
-		<label>Image du torse a afficher</label>
-		<input type="range" id="sliderChooseTorse" name="sliderChooseTorse" min="24" max=394 value=170 step="1"
-			   oninput="seuilChooseTorse.value=parseInt(sliderChooseTorse.value)">
-		<output id="seuilChooseTorseMin">--</output> <!-- permet d'afficher la valeur du slider -->
-	</form>
-
-	<form oninput="updateImageCrane(seuilCrane.value)" method="post"> <!-- formulaire pour r�cuperer la valeur du nombre d'image maximum a afficher -->
-		<label>Nombre d'image du crane</label>
-		<input type="range" id="sliderImageCrane" name="sliderImageCrane" min="1" max=23 value=12 step="1"
-			   oninput="seuilCrane.value=parseInt(sliderImageCrane.value)">
-		<output id="seuilCrane">--</output> <!-- permet d'afficher la valeur du slider -->
-	</form>
-
-	<form oninput="chooseImageCrane(seuilChooseCraneMin.value)" method="post"> <!-- formulaire pour r�cuperer la valeur du minimum a afficher -->
-		<label>Image du crane a afficher</label>
-		<input type="range" id="sliderChooseCrane" name="sliderChooseCrane" min="0" max=23 value=12 step="1"
-			   oninput="seuilChooseCrane.value=parseInt(sliderChooseCrane.value)">
-		<output id="seuilChooseCrane">--</output> <!-- permet d'afficher la valeur du slider -->
+	<form oninput="chooseImage(seuilChoose.value)" method="post"> <!-- formulaire pour recuperer la valeur de l'iamge a afficher -->
+		<label>Image a afficher</label>
+		<input type="range" id="sliderChoose" name="sliderChoose" min="24" max=394 value=170 step="1"
+			   oninput="seuilChoose.value=parseInt(sliderChoose.value)">
+		<output id="seuilChoose">--</output> <!-- permet d'afficher la valeur du slider -->
 	</form>
 
 	<input type="radio" onclick="choixtexture()" id = "Crane" name = "image" checked>

@@ -13,10 +13,8 @@ var objMatrix = mat4.create();
 mat4.identity(objMatrix);
 var texture = [];
 var distance;
-var sliderImageTorse;
-var sliderImageCrane;
-var sliderChooseTorse;
-var sliderChooseCrane;
+var sliderImage;
+var sliderChoose;
 var distCenter = -1.5;
 
 // =====================================================

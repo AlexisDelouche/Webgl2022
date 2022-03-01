@@ -1,25 +1,15 @@
 //Kevin AUBRY-ROMAN, Alexis DELOUCHE, Arthur GROUARD
-var sliderImageTorse;
-var sliderChooseTorse;
-var sliderImageCrane;
-var sliderChooseeCrane;
+var sliderImage;
+var sliderChoose;
 var distance;
 
-function updateImageTorse(val){
-    sliderImageTorse=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du torse"
+function updateImage(val){
+    sliderImage=val;
+    }//fonction qui récupere la valeur du slider "Nombre d'image"
 
-function chooseImageTorse(val){
-    sliderImageTorseMin=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du torse minimum"
-
-function updateImageCrane(val){
-    sliderImageCrane=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du cranee"
-
-function chooseImageCrane(val){
-    sliderImageCraneMin=val;
-    }//fonction qui récupere la valeur du slider "Nombre d'image du crane minimum"
+function chooseImage(val){
+    sliderChoose=val;
+    }//fonction qui récupere la valeur du slider "Image a afficher"
 
 function choixtexture(){
 	if (texture != []){
