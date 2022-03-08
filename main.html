@@ -75,11 +75,11 @@
 	</form>
 
 	<input type="checkbox" id = "unique" name = "image" value="true">
-	<label for="unique">Une Image (P.S. lors du retour au visionnage de plusieurs image change de lots d'image)</label>
+	<label for="unique">Une Image (P.S. lors du retour au visionnage de plusieurs image vous devez changer de lots d'image)</label>
 
 	<form oninput="chooseImage(seuilChoose.value)" method="post"> <!-- formulaire pour recuperer la valeur de l'iamge a afficher -->
 		<label>Image a afficher</label>
-		<input type="range" id="sliderChoose" name="sliderChoose" min="1" max=394 value=170 step="1"
+		<input type="range" id="sliderChoose" name="sliderChoose" min="1" max=texture.length value=170 step="1"
 			   oninput="seuilChoose.value=parseInt(sliderChoose.value)">
 		<output id="seuilChoose">--</output> <!-- permet d'afficher la valeur du slider -->
 	</form>

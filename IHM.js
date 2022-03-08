@@ -52,7 +52,9 @@ function choixtexture(){
             initTexture("ARM/ARM ("+i+").jpg");
         }
            distance = 0.0045;
-       }
+    }
+    document.getElementById("sliderImage").max=texture.length;
+    document.getElementById("sliderChoose").max=texture.length;
 }
 
 /////////////////////////////////////////////////////////////////////////////
