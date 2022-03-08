@@ -37,17 +37,17 @@
 
 	<div>
 		<div>
-			<input type="checkbox" id="check" name="fausseCoul" value="true">
+			<input type="checkbox" id="check" name="fausseCoul" value="true" onclick="setFausseCouleur()" >
 			<label for="check">affichage en fausse couleur</label>
 		</div>
 		<div>
-			<input type="color" id="couleur1" value="#e66465">
+			<input type="color" id="couleur1" value="#e66465" onclick="updateColorPicker1()">
 			<label for="head">Low density color</label>
 	
-			<input type="color" id="couleur2" value="#e66465">
+			<input type="color" id="couleur2" value="#e66465" onclick="updateColorPicker2()" class="color-range">
 			<label for="head">Mid density color</label>
 	
-			<input type="color" id="couleur3" value="#e66465">
+			<input type="color" id="couleur3" value="#e66465" onclick="updateColorPicker3()">
 			<label for="head">High density color</label>
 		</div>	
 		<div>

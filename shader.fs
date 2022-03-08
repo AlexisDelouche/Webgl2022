@@ -13,7 +13,7 @@ uniform vec3 couleur1;
 uniform vec3 couleur2;
 uniform vec3 couleur3;
 
-uniform bool fausseCouleurCheckbox; 
+uniform int fausseCoul; 
 
 vec3 calculcol (vec4 color){ // fonction calculant la couleur en fonction de la densité de l'image
 
@@ -46,7 +46,7 @@ vec3 calculcol (vec4 color){ // fonction calculant la couleur en fonction de la 
 void main(void) {
     vec4 col = texture2D(uSampler, vec2(tCoords.s, tCoords.t));
 
-    if (fausseCouleurCheckbox){ //affichage en fausses couleurs si le bouton est checkbox est coché
+    if (fausseCoul==1){ //affichage en fausses couleurs si le bouton est checkbox est coché
 	    if(col.r<seuilBas || col.r>seuilHaut) discard; // n'affiche pas les pixels se situant 
         //hors de la plage de valeur défini par les deux sliders 
 	    gl_FragColor = vec4 (calculcol(col), col.r);

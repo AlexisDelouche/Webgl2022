@@ -17,6 +17,7 @@ var sliderImage;
 var sliderChoose;
 var distCenter = -1.5;
 
+
 // =====================================================
 function webGLStart() {
 	var canvas = document.getElementById("WebGL-test");
@@ -182,7 +183,7 @@ function initShaders(vShaderTxt,fShaderTxt) {
 	shaderProgram.couleur3=gl.getUniformLocation(shaderProgram,"couleur3");
 
 	//et pour le bouton checkbox
-	shaderProgram.checkbox=gl.getUniformLocation(shaderProgram,"fausseCouleurCheckbox");
+	shaderProgram.fausseCoul=gl.getUniformLocation(shaderProgram,"fausseCoul");
 	
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
 	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
@@ -211,7 +212,7 @@ function setMatrixUniforms() {
 		gl.uniform3f(shaderProgram.couleur3, rgbCouleur3.r,rgbCouleur3.g, rgbCouleur3.b);
 
 		//et pour le bouton checkbox
-		gl.uniform1f(shaderProgram.checkbox, checkbox);
+		gl.uniform1i(shaderProgram.fausseCoul, Checkboxfc);
 	}
 }
 

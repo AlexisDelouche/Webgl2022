@@ -70,14 +70,38 @@ function hexToRGB(hex) {
 
 //recuperation des valeur hexa des colorpicker et conversion en rgb pour chacun des trois boutons
 
-var couleur1 = document.getElementById("couleur1");
-var rgbCouleur1 =hexToRGB(couleur1.value);
+var couleur1=document.getElementById("couleur1");
+var rgbCouleur1=hexToRGB(couleur1.value);
 
+function updateColorPicker1() {
+  couleur1 = document.getElementById("couleur1");
+  rgbCouleur1 =hexToRGB(couleur1.value);
+}
+///////////////////////////////////////////////////////
 var couleur2 = document.getElementById("couleur2");
 var rgbCouleur2 = hexToRGB(couleur2.value);
 
+function updateColorPicker2() {
+  couleur2 = document.getElementById("couleur2");
+  rgbCouleur2 =hexToRGB(couleur2.value);
+}
+//////////////////////////////////////////////////
 var couleur3 = document.getElementById("couleur3");
 var rgbCouleur3 = hexToRGB(couleur3.value);
 
-//recuperation de la valeur du checkbox
-var checkbox = document.getElementById("check").checked;
+function updateColorPicker3() {
+  couleur2 = document.getElementById("couleur3");
+  rgbCouleur3 =hexToRGB(couleur3.value);
+}
+
+/////////////////////////////////////////////
+var Checkboxfc =false;
+
+function setFausseCouleur(){
+  if (document.getElementById("check").checked == true){
+    Checkboxfc=1;
+  }
+  else {
+    Checkboxfc=0;
+  }
+}
