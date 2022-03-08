@@ -3,12 +3,29 @@ var sliderImage;
 var sliderChoose;
 var distance;
 
+var checkboxUnique = document.getElementById("unique").checked;
+
 function updateImage(val){
     sliderImage=val;
     }//fonction qui récupere la valeur du slider "Nombre d'image"
 
 function chooseImage(val){
     sliderChoose=val;
+    if (texture != []){
+		for(var i=1;i<=texture.length;i++){
+			gl.deleteTexture(texture[i]);
+		}
+		texture.length = 0;
+    }
+    if (document.getElementById("Crane").checked == true){
+        initTexture("Image/Crane ("+val+").jpg");
+        }
+    else if(document.getElementById("Torse").checked == true){
+        initTexture("MRI/IRM ("+val+").jpg");
+    }
+    else if(document.getElementById("Bras").checked == true){
+        initTexture("ARM/ARM ("+val+").jpg");
+    }
     }//fonction qui récupere la valeur du slider "Image a afficher"
 
 function lengthDossier(){
@@ -42,7 +59,9 @@ function choixtexture(){
             initTexture("ARM/ARM ("+i+").jpg");
         }
            distance = 0.0045;
-       }
+    }
+    document.getElementById("sliderImage").max=texture.length;
+    document.getElementById("sliderChoose").max=texture.length;
 }
 
 /////////////////////////////////////////////////////////////////////////////

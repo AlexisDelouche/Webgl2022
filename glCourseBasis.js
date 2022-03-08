@@ -16,6 +16,7 @@ var distance;
 var sliderImage;
 var sliderChoose;
 var distCenter = -1.5;
+var checkboxUnique;
 
 // =====================================================
 function webGLStart() {
@@ -27,7 +28,13 @@ function webGLStart() {
 	initGL(canvas);
 	initBuffers();
 
-    choixtexture();
+    if (checkboxUnique==false){
+        choixtexture();
+    }
+    else{
+        chooseImage(sliderChoose);
+    }
+    checkboxUnique
 
 	loadShaders('shader');
 
@@ -226,7 +233,7 @@ function drawScene() {
         mat4.translate(mvMatrix, [0.0, 0.1, distCenter]);
         mat4.multiply(mvMatrix, objMatrix);
         setMatrixUniforms();
-        gl.bindTexture(gl.TEXTURE_2D, texture[1]);
+        gl.bindTexture(gl.TEXTURE_2D, texture[0]);
         gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
 
         for (var i=1;i<=sliderImage;i++){//permet d'afficher toutes les textures charger en prenant compte des valeurs des slider
@@ -236,5 +243,5 @@ function drawScene() {
             gl.uniform1i(shaderProgram.samplerUniform, 0); //active le sampler numéro 0
             gl.drawArrays(gl.TRIANGLE_FAN, 0, vertexBuffer.numItems);
         }
-	}
+    }
 }
