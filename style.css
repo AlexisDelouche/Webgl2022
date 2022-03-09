@@ -78,3 +78,18 @@ canvas{
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
+
+  :root{
+    --couleur1:#FFFFFF;
+    --couleur2:#FFFFFF;
+    --couleur3:#FFFFFF;
+    --couleur4:#FFFFFF;
+  }
+
+  .color_gradient {
+    width  : 300px;
+    height : 100px;
+    margin : 10px;
+    float : left;
+    background : linear-gradient(to right, var(--couleur1)0%,var(--couleur2),var(--couleur3), var(--couleur4)100%);
+  }

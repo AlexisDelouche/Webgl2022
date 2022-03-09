@@ -41,46 +41,48 @@
 			<label for="check">affichage en fausse couleur</label>
 		</div>
 		<div>
-			<input type="color" id="couleur1" value="#e66465" onclick="updateColorPicker1()">
-			<label for="head">Low density color</label>
-	
-			<input type="color" id="couleur2" value="#e66465" onclick="updateColorPicker2()" class="color-range">
-			<label for="head">Mid density color</label>
-	
-			<input type="color" id="couleur3" value="#e66465" onclick="updateColorPicker3()">
-			<label for="head">High density color</label>
-		</div>	
-		<div>
-			<label for="layout">Choose the kind of layout</label>
-			<select name="layout" id="layout">
-    			<option value="layout1">layout1</option>
-  				<option value="layout2">layout2</option>
-  				<option value="layout3">layout3</option>
+			<label for="dropdown">Choisir une palette de couleurs</label>
+			<select name="dropdown" id="dropdown" onchange="setPalette()">
+				<option value="" selected disabled hidden>Choisir ici</option>
+    			<option value="Palette rouge">Palette rouge</option>
+  				<option value="Palette verte">Palette verte</option>
+  				<option value="Palette bleue">Palette bleue</option>
+				<option value="Autre" selected="selected">Autre</option>
 			</select>
 		</div>
+		<div>
+			<input type="color" id="couleur1" value="#e66465" onclick="updateColorPicker1()">
+			<input type="color" id="couleur2" value="#e66465" onclick="updateColorPicker2()">
+			<input type="color" id="couleur3" value="#e66465" onclick="updateColorPicker3()">
+			<input type="color" id="couleur4" value="#e66465" onclick="updateColorPicker4()">
+		</div>
+		<div class="color_gradient">	</div>
 	</div>
-	<form oninput="updateImage(seuil.value)" method="post"> <!-- formulaire pour recuperer la valeur du nombre d'image maximum a afficher -->
-		<label>Nombre d'image</label>
-		<input type="range" id="sliderImage" name="sliderImage" min="1" max=texture.length value=max/2 step="1"
+	<div>
+		<form oninput="updateImage(seuil.value)" method="post"> <!-- formulaire pour recuperer la valeur du nombre d'image maximum a afficher -->
+			<label>Nombre d'image</label>
+			<input type="range" id="sliderImage" name="sliderImage" min="1" max=texture.length value=max/2 step="1"
 			   oninput="seuil.value=parseInt(sliderImage.value)">
-		<output id="seuil">--</output> <!-- permet d'afficher la valeur du slider -->
-	</form>
+			<output id="seuil">--</output> <!-- permet d'afficher la valeur du slider -->
+		</form>
 
-	<form oninput="chooseImage(seuilChoose.value)" method="post"> <!-- formulaire pour recuperer la valeur de l'iamge a afficher -->
-		<label>Image a afficher</label>
-		<input type="range" id="sliderChoose" name="sliderChoose" min="24" max=394 value=170 step="1"
+		<form oninput="chooseImage(seuilChoose.value)" method="post"> <!-- formulaire pour recuperer la valeur de l'iamge a afficher -->
+			<label>Image a afficher</label>
+			<input type="range" id="sliderChoose" name="sliderChoose" min="24" max=394 value=170 step="1"
 			   oninput="seuilChoose.value=parseInt(sliderChoose.value)">
-		<output id="seuilChoose">--</output> <!-- permet d'afficher la valeur du slider -->
-	</form>
+			<output id="seuilChoose">--</output> <!-- permet d'afficher la valeur du slider -->
+		</form>
 
-	<input type="radio" onclick="choixtexture()" id = "Crane" name = "image" checked>
-	<label for="image">Crane</label>
+		<input type="radio" onclick="choixtexture()" id = "Crane" name = "image" checked>
+		<label for="image">Crane</label>
 
-	<input type="radio" onclick="choixtexture()" id = "Torse" name = "image">
-	<label for="image">Torse</label>
+		<input type="radio" onclick="choixtexture()" id = "Torse" name = "image">
+		<label for="image">Torse</label>
 
-	<input type="radio" onclick="choixtexture()" id = "Bras" name = "image">
-	<label for="image">Bras</label>
+		<input type="radio" onclick="choixtexture()" id = "Bras" name = "image">
+		<label for="image">Bras</label>
+	</div>
+	
 
 </body>
 <script type="text/javascript" src="IHM.js"></script>

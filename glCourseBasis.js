@@ -177,13 +177,19 @@ function initShaders(vShaderTxt,fShaderTxt) {
 	shaderProgram.seuilBas=gl.getUniformLocation(shaderProgram,"seuilBas");
 	shaderProgram.seuilHaut=gl.getUniformLocation(shaderProgram,"seuilHaut");
 
-	// meme chose pour la couleur
+	/* meme chose pour la couleur
 	shaderProgram.couleur1=gl.getUniformLocation(shaderProgram,"couleur1");
 	shaderProgram.couleur2=gl.getUniformLocation(shaderProgram,"couleur2");
-	shaderProgram.couleur3=gl.getUniformLocation(shaderProgram,"couleur3");
+	shaderProgram.couleur3=gl.getUniformLocation(shaderProgram,"couleur3");*/
 
 	//et pour le bouton checkbox
 	shaderProgram.fausseCoul=gl.getUniformLocation(shaderProgram,"fausseCoul");
+
+	//et pour le layout
+	shaderProgram.layoutC1=gl.getUniformLocation(shaderProgram,"c1");
+	shaderProgram.layoutC2=gl.getUniformLocation(shaderProgram,"c2");
+	shaderProgram.layoutC3=gl.getUniformLocation(shaderProgram,"c3");
+	shaderProgram.layoutC4=gl.getUniformLocation(shaderProgram,"c4");
 	
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
 	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
@@ -206,14 +212,20 @@ function setMatrixUniforms() {
 		gl.uniform1f(shaderProgram.seuilBas, sliderSeuilBas.value);
 		gl.uniform1f(shaderProgram.seuilHaut, sliderSeuilHaut.value);
 		
-		//meme chose pour les couleurs 
+		/*meme chose pour les couleurs 
 		gl.uniform3f(shaderProgram.couleur1, rgbCouleur1.r,rgbCouleur1.g, rgbCouleur1.b);
 		gl.uniform3f(shaderProgram.couleur2, rgbCouleur2.r,rgbCouleur2.g, rgbCouleur2.b);
-		gl.uniform3f(shaderProgram.couleur3, rgbCouleur3.r,rgbCouleur3.g, rgbCouleur3.b);
-
+		gl.uniform3f(shaderProgram.couleur3, rgbCouleur3.r,rgbCouleur3.g, rgbCouleur3.b);*/
 		//et pour le bouton checkbox
 		gl.uniform1i(shaderProgram.fausseCoul, Checkboxfc);
+
+		//et pour le layout
+		gl.uniform3fv(shaderProgram.layoutC1, c1);
+		gl.uniform3fv(shaderProgram.layoutC2, c2);
+		gl.uniform3fv(shaderProgram.layoutC3, c3);
+		gl.uniform3fv(shaderProgram.layoutC4, c4);
 	}
+
 }
 
 // =====================================================

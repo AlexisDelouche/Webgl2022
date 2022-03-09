@@ -58,41 +58,6 @@ sliderSeuilHaut.oninput = function() {
 }
 /////////////////////////////////////////////////////////
  
-//fonction de conversion du valeur hexadecimal en valeur rgb
-function hexToRGB(hex) {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16) / 255,
-    g: parseInt(result[2], 16) / 255,
-    b: parseInt(result[3], 16) / 255
-  } : null;
-}
-
-//recuperation des valeur hexa des colorpicker et conversion en rgb pour chacun des trois boutons
-
-var couleur1=document.getElementById("couleur1");
-var rgbCouleur1=hexToRGB(couleur1.value);
-
-function updateColorPicker1() {
-  couleur1 = document.getElementById("couleur1");
-  rgbCouleur1 =hexToRGB(couleur1.value);
-}
-///////////////////////////////////////////////////////
-var couleur2 = document.getElementById("couleur2");
-var rgbCouleur2 = hexToRGB(couleur2.value);
-
-function updateColorPicker2() {
-  couleur2 = document.getElementById("couleur2");
-  rgbCouleur2 =hexToRGB(couleur2.value);
-}
-//////////////////////////////////////////////////
-var couleur3 = document.getElementById("couleur3");
-var rgbCouleur3 = hexToRGB(couleur3.value);
-
-function updateColorPicker3() {
-  couleur2 = document.getElementById("couleur3");
-  rgbCouleur3 =hexToRGB(couleur3.value);
-}
 
 /////////////////////////////////////////////
 var Checkboxfc =false;
@@ -103,5 +68,83 @@ function setFausseCouleur(){
   }
   else {
     Checkboxfc=0;
+  }
+}
+
+/////////////////////////////////////////////////
+//fonction de conversion du valeur hexadecimal en valeur rgb
+function hexToRGB(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16) / 255,
+    g: parseInt(result[2], 16) / 255,
+    b: parseInt(result[3], 16) / 255
+  } : null;
+}
+
+var dropdown;
+var choice; 
+var layout; 
+var c1=[1.0,0.0,0.0];//document.getElementById("couleur1"); c1=hexToRGB(c1.value);
+var c2=[1.0,0.0,0.0];//ocument.getElementById("couleur2"); c2=hexToRGB(c2.value);
+var c3=[1.0,0.0,0.0];//document.getElementById("couleur3"); c3=hexToRGB(c3.value);
+var c4=[1.0,0.0,0.0];//document.getElementById("couleur4"); c4=hexToRGB(c4.value);
+
+function updateColorPicker1() {
+  c1 = document.getElementById("couleur1");
+  c1 =hexToRGB(c1.value);
+  return c1;
+}
+
+function updateColorPicker2() {
+  c2 = document.getElementById("couleur2");
+  c2 =hexToRGB(c2.value);
+  return c2;
+}
+
+function updateColorPicker3() {
+  c3 = document.getElementById("couleur3");
+  c3 =hexToRGB(c3.value);
+  return c3;
+}
+
+function updateColorPicker4() {
+  c4 = document.getElementById("couleur4");
+  c4 =hexToRGB(c4.value);
+  return c4;
+}
+
+function setPalette(){
+  dropdown = document.getElementById("dropdown");
+  choice = dropdown.selectedIndex;
+  layout = dropdown.options[choice].value; 
+
+  if (layout == "Palette rouge"){
+    c1=[1.0,0.0,0.0];
+    c2=[1.0,0.0,0.0];
+    c3=[1.0,0.0,0.0];
+    c4=[1.0,0.0,0.0];
+    console.log(c1,c2,c3,c4,"palette rouge");
+  }
+  else if (layout == "Palette verte"){
+    c1=[0.0,1.0,0.0];
+    c2=[0.0,1.0,0.0];
+    c3=[0.0,1.0,0.0];
+    c4=[0.0,1.0,0.0];
+    console.log(c1,c2,c3,c4,"palette verte");
+  }
+  else if (layout == "Palette bleue"){
+    c1=[0.0,0.0,1.0];
+    c2=[0.0,0.0,1.0];
+    c3=[0.0,0.0,1.0];
+    c4=[0.0,0.0,1.0];
+    console.log(c1,c2,c3,c4,"palette bleue");
+  }
+  else if (layout == "Autre"){
+    c1=updateColorPicker1();
+    c2=updateColorPicker2();
+    c3=updateColorPicker3();
+    c4=updateColorPicker4();
+    console.log(c1,c2,c3,c4,"palette autre");
   }
 }
