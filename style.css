@@ -36,7 +36,6 @@ canvas{
 }
 .slidecontainer {
     width: 100px; /* Width of the outside container */
-    display: none;
     border-radius: 10px;
     background-color: rgb(53, 162, 252);
     align-content: center;
@@ -84,12 +83,14 @@ canvas{
     --couleur2:#FFFFFF;
     --couleur3:#FFFFFF;
     --couleur4:#FFFFFF;
+    --propC2: 33%;
+    --propC3: 67%;
   }
 
   .color_gradient {
     width  : 300px;
     height : 100px;
     margin : 10px;
-    float : left;
-    background : linear-gradient(to right, var(--couleur1)0%,var(--couleur2),var(--couleur3), var(--couleur4)100%);
+    float : left; 
+    background : linear-gradient(to right, var(--couleur1), var(--couleur2), var(--couleur3), var(--couleur4));
   }

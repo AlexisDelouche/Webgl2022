@@ -8,6 +8,7 @@ uniform sampler2D uSampler;
 
 uniform float seuilBas;
 uniform float seuilHaut;
+uniform float transparence;
 
 uniform vec3 c1;
 uniform vec3 c2;
@@ -48,10 +49,11 @@ void main(void) {
     if (fausseCoul==1){ //affichage en fausses cs si le bouton est checkbox est coché
 	    if(col.r<seuilBas || col.r>seuilHaut) discard; // n'affiche pas les pixels se situant 
         //hors de la plage de valeur défini par les deux sliders 
-	    gl_FragColor = vec4 (calculcol(col), col.r);
+	    gl_FragColor = vec4 (calculcol(col), col.r);//transparence
     }
     else{ // affichage en niiveaux de gris 
-        gl_FragColor = vec4(col.xyz, col.r);
+        if(col.r<seuilBas || col.r>seuilHaut) discard;
+        gl_FragColor = vec4(col.xyz, transparence);
     }
 	
 }

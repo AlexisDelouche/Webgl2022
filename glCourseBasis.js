@@ -176,11 +176,7 @@ function initShaders(vShaderTxt,fShaderTxt) {
 	//crée la place en mémoire pour enregistrer les données du slider
 	shaderProgram.seuilBas=gl.getUniformLocation(shaderProgram,"seuilBas");
 	shaderProgram.seuilHaut=gl.getUniformLocation(shaderProgram,"seuilHaut");
-
-	/* meme chose pour la couleur
-	shaderProgram.couleur1=gl.getUniformLocation(shaderProgram,"couleur1");
-	shaderProgram.couleur2=gl.getUniformLocation(shaderProgram,"couleur2");
-	shaderProgram.couleur3=gl.getUniformLocation(shaderProgram,"couleur3");*/
+	shaderProgram.seuilTransparence=gl.getUniformLocation(shaderProgram,"transparence");
 
 	//et pour le bouton checkbox
 	shaderProgram.fausseCoul=gl.getUniformLocation(shaderProgram,"fausseCoul");
@@ -197,8 +193,7 @@ function initShaders(vShaderTxt,fShaderTxt) {
 
 	gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
 	gl.vertexAttribPointer(shaderProgram.texCoordsAttribute,
-      	texCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
-
+    texCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
 }
 
 
@@ -211,19 +206,16 @@ function setMatrixUniforms() {
 		//envoie le contenu du slider vers le fichier de shader
 		gl.uniform1f(shaderProgram.seuilBas, sliderSeuilBas.value);
 		gl.uniform1f(shaderProgram.seuilHaut, sliderSeuilHaut.value);
-		
-		/*meme chose pour les couleurs 
-		gl.uniform3f(shaderProgram.couleur1, rgbCouleur1.r,rgbCouleur1.g, rgbCouleur1.b);
-		gl.uniform3f(shaderProgram.couleur2, rgbCouleur2.r,rgbCouleur2.g, rgbCouleur2.b);
-		gl.uniform3f(shaderProgram.couleur3, rgbCouleur3.r,rgbCouleur3.g, rgbCouleur3.b);*/
+		gl.uniform1f(shaderProgram.seuilTransparence, sliderTransparence.value);
+
 		//et pour le bouton checkbox
 		gl.uniform1i(shaderProgram.fausseCoul, Checkboxfc);
 
 		//et pour le layout
-		gl.uniform3fv(shaderProgram.layoutC1, c1);
-		gl.uniform3fv(shaderProgram.layoutC2, c2);
-		gl.uniform3fv(shaderProgram.layoutC3, c3);
-		gl.uniform3fv(shaderProgram.layoutC4, c4);
+		gl.uniform3f(shaderProgram.layoutC1, c1.r,c1.g,c1.b);
+		gl.uniform3f(shaderProgram.layoutC2, c2.r,c2.g,c2.b);
+		gl.uniform3f(shaderProgram.layoutC3, c3.r,c3.g,c3.b);
+		gl.uniform3f(shaderProgram.layoutC4, c4.r,c4.g,c4.b);
 	}
 
 }

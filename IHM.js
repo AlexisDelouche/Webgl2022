@@ -1,7 +1,11 @@
 //Kevin AUBRY-ROMAN, Alexis DELOUCHE, Arthur GROUARD
+
+
 var sliderImage;
 var sliderChoose;
 var distance;
+
+let root = document.querySelector(':root');
 
 function updateImage(val){
     sliderImage=val;
@@ -41,25 +45,27 @@ function choixtexture(){
 /////////////////////////////////////////////////////////////////////////////
 var sliderSeuilBas = document.getElementById("seuilBas");
 var output1 = document.getElementById("valeurSeuilBas");
-output1.innerHTML = sliderSeuilBas.value; // affichage de la valeur du slider
+output1.innerHTML = sliderSeuilBas.value;
 
-// mise à jour de la valeur du slider chaque fois qu'il est utilisé
 sliderSeuilBas.oninput = function() {
   output1.innerHTML = this.value;
 }
 
-//////////////////////
-// meme choses pour le second slider
 var sliderSeuilHaut = document.getElementById("seuilHaut");
 var output2 = document.getElementById("valeurSeuilHaut");
 output2.innerHTML = sliderSeuilHaut.value;
 sliderSeuilHaut.oninput = function() {
   output2.innerHTML = this.value;
 }
-/////////////////////////////////////////////////////////
- 
 
-/////////////////////////////////////////////
+var sliderTransparence = document.getElementById("sliderTransparence");
+var outputTransparence = document.getElementById("valeurTransparence");
+outputTransparence.innerHTML = sliderSeuilHaut.value;
+sliderTransparence.oninput=function(){
+  outputTransparence.innerHTML = this.value;
+}
+/////////////////////////////////////////////////////////
+
 var Checkboxfc =false;
 
 function setFausseCouleur(){
@@ -70,48 +76,60 @@ function setFausseCouleur(){
     Checkboxfc=0;
   }
 }
-
 /////////////////////////////////////////////////
-//fonction de conversion du valeur hexadecimal en valeur rgb
+
+var dropdown;
+var choice; 
+var layout; 
+var c1 = document.getElementById("couleur1");
+var c2 = document.getElementById("couleur2");
+var c3 = document.getElementById("couleur3"); 
+var c4 = document.getElementById("couleur4"); 
+
 function hexToRGB(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
     r: parseInt(result[1], 16) / 255,
     g: parseInt(result[2], 16) / 255,
-    b: parseInt(result[3], 16) / 255
+    b: parseInt(result[3], 16) / 255,
   } : null;
 }
 
-var dropdown;
-var choice; 
-var layout; 
-var c1=[1.0,0.0,0.0];//document.getElementById("couleur1"); c1=hexToRGB(c1.value);
-var c2=[1.0,0.0,0.0];//ocument.getElementById("couleur2"); c2=hexToRGB(c2.value);
-var c3=[1.0,0.0,0.0];//document.getElementById("couleur3"); c3=hexToRGB(c3.value);
-var c4=[1.0,0.0,0.0];//document.getElementById("couleur4"); c4=hexToRGB(c4.value);
+c1=hexToRGB(c1.value);
+c2=hexToRGB(c2.value);
+c3=hexToRGB(c3.value);
+c4=hexToRGB(c4.value);
+
+function setCssCouleur(couleurcss,couleurhexa){
+  root.style.setProperty(couleurcss,couleurhexa);
+}
 
 function updateColorPicker1() {
   c1 = document.getElementById("couleur1");
-  c1 =hexToRGB(c1.value);
-  return c1;
+  setCssCouleur("--couleur1",c1.value);
+  c1 =hexToRGB(c1.value); 
 }
 
 function updateColorPicker2() {
   c2 = document.getElementById("couleur2");
+  setCssCouleur("--couleur2",c2.value);
   c2 =hexToRGB(c2.value);
-  return c2;
 }
 
 function updateColorPicker3() {
   c3 = document.getElementById("couleur3");
+  setCssCouleur("--couleur3",c3.value)
   c3 =hexToRGB(c3.value);
-  return c3;
 }
 
 function updateColorPicker4() {
   c4 = document.getElementById("couleur4");
+  setCssCouleur("--couleur4",c4.value)
   c4 =hexToRGB(c4.value);
-  return c4;
+}
+
+function updateColorPicker5(colorPickerId, colorVal){
+  document.getElementById(colorPickerId).value = colorVal;
 }
 
 function setPalette(){
@@ -120,31 +138,25 @@ function setPalette(){
   layout = dropdown.options[choice].value; 
 
   if (layout == "Palette rouge"){
-    c1=[1.0,0.0,0.0];
-    c2=[1.0,0.0,0.0];
-    c3=[1.0,0.0,0.0];
-    c4=[1.0,0.0,0.0];
-    console.log(c1,c2,c3,c4,"palette rouge");
+    c1='#ff0000';
+    c2='#ff0000';
+    c3='#ff0000';
+    c4='#ff0000';
   }
   else if (layout == "Palette verte"){
-    c1=[0.0,1.0,0.0];
-    c2=[0.0,1.0,0.0];
-    c3=[0.0,1.0,0.0];
-    c4=[0.0,1.0,0.0];
-    console.log(c1,c2,c3,c4,"palette verte");
+    c1='#00ff00';
+    c2='#00ff00';
+    c3='#00ff00';
+    c4='#00ff00';
   }
   else if (layout == "Palette bleue"){
-    c1=[0.0,0.0,1.0];
-    c2=[0.0,0.0,1.0];
-    c3=[0.0,0.0,1.0];
-    c4=[0.0,0.0,1.0];
-    console.log(c1,c2,c3,c4,"palette bleue");
+    c1='#0000ff';
+    c2='#0000ff';
+    c3='#0000ff';
+    c4='#0000ff';
   }
-  else if (layout == "Autre"){
-    c1=updateColorPicker1();
-    c2=updateColorPicker2();
-    c3=updateColorPicker3();
-    c4=updateColorPicker4();
-    console.log(c1,c2,c3,c4,"palette autre");
-  }
+  updateColorPicker5("couleur1",c1);setCssCouleur('--couleur1',c1); c1=hexToRGB(c1);
+  updateColorPicker5("couleur2",c2);setCssCouleur('--couleur2',c2); c2=hexToRGB(c2);
+  updateColorPicker5("couleur3",c3);setCssCouleur('--couleur3',c3); c3=hexToRGB(c3);
+  updateColorPicker5("couleur4",c4);setCssCouleur('--couleur4',c4); c4=hexToRGB(c4);
 }
